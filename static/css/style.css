@@ -1,0 +1,38 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 1024px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: rgb(249 250 251);
+  display: grid;
+  place-items: center;
+}
+
+section {
+  padding: 40px 20px;
+  width: 480px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0 0 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  outline: none;
+  color: #fff;
+  background-color: rgb(29 78 216);
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+button:hover {
+  background-color: rgb(30 64 175);
+}
