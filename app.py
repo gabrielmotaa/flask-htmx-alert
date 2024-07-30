@@ -18,7 +18,7 @@ def flash_to_htmx_trigger(response):
 
     if hx_header := response.headers.get('HX-Trigger'):
         try:
-            existing_trigger_content = json.loads(hx_trigger)
+            existing_trigger_content = json.loads(hx_header)
         except json.JSONDecodeError:
             # É uma string, criar objeto vazio tendo ela como chave.
             for key in hx_header.split(','):
