@@ -12,9 +12,24 @@ def flash_to_htmx_trigger(response):
     flashes = session.pop('_flashes') if '_flashes' in session else []
 
     if not flashes:
-        return response
+      return response
 
     trigger_content = {'alerts': flashes}
+
+    if hx_header := response.headers.get('HX-Trigger'):
+        try:
+            existing_trigger_content = json.loads(hx_trigger)
+        except json.JSONDecodeError:
+            # É uma string, criar objeto vazio tendo ela como chave.
+            for key in hx_header.split(','):
+                trigger_content[key.strip()] = {}
+        else:
+            # É um objeto, fazer o merge com o nosso.
+            if isinstance(existing_trigger_content, list):
+                raise TypeError('HX-Trigger does not support array')
+
+            trigger_content |= existing_trigger_content
+
     response.headers['HX-Trigger'] = json.dumps(trigger_content)
 
     return response
