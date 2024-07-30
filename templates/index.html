@@ -11,7 +11,7 @@
 <body>
   <section>
     <h1>Olá mundo!</h1>
-    <button hx-get="{{ url_for('alert') }}" hx-target="#alerts">
+    <button hx-get="{{ url_for('alert') }}" hx-swap="none">
       Criar um alerta aleatório
     </button>
   </section>

@@ -1,5 +1,6 @@
 import random
-from flask import Flask, render_template
+import json
+from flask import Flask, render_template, make_response
 
 app = Flask(__name__)
 
@@ -12,7 +13,8 @@ def index():
 @app.route('/alert')
 def alert():
     level = random.choice(['info', 'error', 'success', 'warning'])
-    return f'''
-    <div class="alert is-{level}">
-      <strong>{level.upper()}</strong> Esse é um alerta vindo do Flask!
-    </div>'''
+    response = make_response()
+    response.headers['HX-Trigger'] = json.dumps({
+      'alerts': [('info', 'Esse é um alerta vindo do HX-Trigger!')]
+    })
+    return response
