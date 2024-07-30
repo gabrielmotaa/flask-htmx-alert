@@ -36,3 +36,43 @@ button {
 button:hover {
   background-color: rgb(30 64 175);
 }
+
+#alerts {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 5px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.is-info {
+  --alert-color: rgb(30 64 175);
+  --alert-background-color: rgb(239 246 255);
+}
+
+.is-error {
+  --alert-color: rgb(153 27 27);
+  --alert-background-color: rgb(254 242 242);
+}
+
+.is-warning {
+  --alert-color: rgb(133 77 14);
+  --alert-background-color: rgb(254 252 232);
+}
+
+.is-success {
+  --alert-color: rgb(22 101 52);
+  --alert-background-color: rgb(240 253 244);
+}
+
+.alert {
+  margin: 10px 0;
+  background-color: var(--alert-background-color);
+  color: var(--alert-color);
+  border: 2px dashed var(--alert-color);
+  border-radius: 10px;
+  padding: 22px 24px;
+  max-width: 480px;
+}

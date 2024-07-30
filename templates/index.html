@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flask + HTMX + flash</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
   <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
 </head>
 <body>
   <section>
     <h1>Olá mundo!</h1>
+    <button hx-get="{{ url_for('alert') }}" hx-target="#alerts">
+      Criar um alerta aleatório
+    </button>
   </section>
   <div id="alerts"></div>
 </body>
